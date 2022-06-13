@@ -1,5 +1,6 @@
 ﻿using KoBuApp.Entities;
 using Serilog;
+using YeetQuest.Data;
 
 namespace KoBuApp.Extensions
 {
@@ -29,6 +30,9 @@ namespace KoBuApp.Extensions
         {
             using var serviceScope = app.ApplicationServices.CreateScope();
             serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>().Database.EnsureCreated();
+            var context = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+
+            DbSeeder.Seed(context);
         }
     }
 }
