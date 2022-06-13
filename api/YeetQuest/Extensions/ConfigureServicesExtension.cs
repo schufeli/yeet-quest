@@ -15,7 +15,8 @@ namespace KoBuApp.Extensions
         {
             services.AddDbContext<ApplicationDbContext>(options =>
             {
-                options.UseSqlServer(connectionString);
+                options.UseSqlServer(connectionString,
+                    b => b.MigrationsAssembly("YeetQuest"));
             });
         }
 
