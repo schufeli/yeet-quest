@@ -10,7 +10,6 @@ namespace YeetQuest.Entities.Models
         public string? Name { get; set; }
         public virtual List<Chat>? Chats { get; set; }
         public virtual List<Quest>? Quests { get; set; }
-        [JsonIgnore]
         public virtual List<Message>? Messages { get; set; }
     }
 }

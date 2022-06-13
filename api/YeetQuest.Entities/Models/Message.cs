@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
 
 namespace YeetQuest.Entities.Models
 {
@@ -11,10 +10,8 @@ namespace YeetQuest.Entities.Models
         public string? Content { get; set; }
         public DateTime CreatedDateTime { get; set; } = DateTime.Now;
         public Guid AuthorId { get; set; }
-        [JsonIgnore]
         public User? Author { get; set; }
         public Guid ChatId { get; set; }
-        [JsonIgnore]
         public Chat? Chat { get; set; }
     }
 }

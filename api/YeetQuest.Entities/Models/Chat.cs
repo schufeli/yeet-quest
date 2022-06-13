@@ -6,6 +6,7 @@ namespace YeetQuest.Entities.Models
     {
         [Key]
         public Guid Id { get; set; } = Guid.NewGuid();
+        public int Index { get; set; }
         [Required]
         public string? Name { get; set; }
         [Required]

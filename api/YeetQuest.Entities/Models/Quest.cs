@@ -12,10 +12,8 @@ namespace YeetQuest.Entities.Models
         public bool IsCompleted { get; set; } = false;
         public DateTime DueDate { get; set; } = DateTime.Now;
         public Guid AssigneId { get; set; }
-        [JsonIgnore]
         public User? Assigne { get; set; }
         public Guid ChatId { get; set; }
-        [JsonIgnore]
         public Chat? Chat { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using KoBuApp.Extensions;
+using System.Text.Json.Serialization;
 
 namespace KoBuApp
 {
@@ -14,7 +15,13 @@ namespace KoBuApp
         {
             services.AddEntityFrameworkCore(_configuration.GetConnectionString("ApplicationDbConnection"));
 
-            services.AddControllers();
+            services.AddControllers()
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+                    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+                });
+
             services.AddSwagger();
 
             services.AddHealthChecks(_configuration);

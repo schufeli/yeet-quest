@@ -13,6 +13,13 @@ namespace KoBuApp.Entities
             builder.Entity<Chat>().ToTable("Chats");
 
             builder.Entity<Chat>()
+                .Property(c => c.Index)
+                .ValueGeneratedOnAdd();
+
+            builder.Entity<Chat>()
+                .HasIndex(c => c.Index);
+
+            builder.Entity<Chat>()
                 .HasMany(c => c.Messages)
                 .WithOne(m => m.Chat);
 
