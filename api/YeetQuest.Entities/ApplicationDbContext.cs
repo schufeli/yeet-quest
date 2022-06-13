@@ -64,6 +64,13 @@ namespace KoBuApp.Entities
             builder.Entity<User>().ToTable("Users");
 
             builder.Entity<User>()
+                .Property(u => u.Index)
+                .ValueGeneratedOnAdd();
+
+            builder.Entity<User>()
+                .HasIndex(u => u.Index);
+
+            builder.Entity<User>()
                 .HasMany(u => u.Chats)
                 .WithMany(c => c.Users);
 

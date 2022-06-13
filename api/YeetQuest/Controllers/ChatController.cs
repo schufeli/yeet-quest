@@ -37,7 +37,7 @@ namespace YeetQuest.Controllers
             var element = DbContext.Chats
                 .SingleOrDefault(e => e.Id == Guid.Parse(id));
 
-            if (element.Equals(null))
+            if (element == null)
                 return NotFound("Chat");
 
             return new JsonResult(
@@ -53,7 +53,7 @@ namespace YeetQuest.Controllers
                 .Where(e => e.Id.Equals(Guid.Parse(id)))
                 .SingleOrDefault();
 
-            if (element.Equals(null))
+            if (element == null)
                 return NotFound("Chat");
 
             return new JsonResult(
@@ -69,7 +69,7 @@ namespace YeetQuest.Controllers
                 .Where(e => e.Id.Equals(Guid.Parse(id)))
                 .SingleOrDefault();
 
-            if (element.Equals(null))
+            if (element == null)
                 return NotFound("Chat");
 
             return new JsonResult(
@@ -85,7 +85,7 @@ namespace YeetQuest.Controllers
                 .Where(e => e.Id.Equals(Guid.Parse(id)))
                 .SingleOrDefault();
 
-            if (element.Equals(null))
+            if (element == null)
                 return NotFound("Chat");
 
             return new JsonResult(
@@ -110,7 +110,7 @@ namespace YeetQuest.Controllers
                 .Include(c => c.Users)
                 .SingleOrDefault(c => c.Id == Guid.Parse(id));
 
-            if (element.Equals(null))
+            if (element == null)
                 return NotFound("Chat");
 
             foreach (var model in models)
@@ -137,7 +137,7 @@ namespace YeetQuest.Controllers
                 .Include(c => c.Users)
                 .SingleOrDefault(c => c.Id == Guid.Parse(id));
 
-            if (element.Equals(null))
+            if (element == null)
                 return NotFound("Chat");
 
             foreach (var model in models)
