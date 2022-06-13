@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32414.318
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YeetQuest", "YeetQuest\YeetQuest.csproj", "{5A80F0DC-3784-4815-AB97-F9C2FD3ADDA9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YeetQuest.Entities", "YeetQuest.Entities\YeetQuest.Entities.csproj", "{5BA60CBD-0890-47F1-8115-8131DFA4F004}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5A80F0DC-3784-4815-AB97-F9C2FD3ADDA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A80F0DC-3784-4815-AB97-F9C2FD3ADDA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A80F0DC-3784-4815-AB97-F9C2FD3ADDA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A80F0DC-3784-4815-AB97-F9C2FD3ADDA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BA60CBD-0890-47F1-8115-8131DFA4F004}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BA60CBD-0890-47F1-8115-8131DFA4F004}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BA60CBD-0890-47F1-8115-8131DFA4F004}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BA60CBD-0890-47F1-8115-8131DFA4F004}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0CAFA8AF-8EEF-43F1-A6C7-6B4BFEBFD0A0}
+	EndGlobalSection
+EndGlobal
