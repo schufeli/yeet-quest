@@ -1,4 +1,4 @@
-# Komax Backup App - API
+# Yeet Chat - API
 
 ## 🔧 Development Environment
 
