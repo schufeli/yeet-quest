@@ -37,7 +37,6 @@ npm-debug.log*
 /android/
 /androidcd 
 
-resources/android
-resources/blackberry10
+resources/android/splash
+resources/android/icon
 resources/ios
-resources/windows
