@@ -27,6 +27,11 @@ namespace KoBuApp
             services.AddSwagger();
             services.AddSignalR();
 
+            services.AddSignalR(options =>
+            {
+                options.EnableDetailedErrors = true;
+            });
+
             services.AddHealthChecks(_configuration);
             services.AddCors();
         }
