@@ -21,6 +21,11 @@ namespace KoBuApp.Extensions
             {
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
             });
+
+            app.UseCors(options => options
+                .AllowAnyOrigin()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true));
         }
 
         /// <summary>
