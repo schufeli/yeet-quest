@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="navigateToLogin()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding ion-text-center">
+    <form [formGroup]="registerForm" (keydown.enter)="register()">
+        <ion-row>
+            <ion-col size="12">
+                <img src="/assets/icon.png" style="width: 50%;" class="icon-small" />
+            </ion-col>
+            <ion-col size="12" class="ion-padding-top">
+                <h1>Registration</h1>
+            </ion-col>
+        </ion-row>
+        <ion-grid>
+            <ion-row class="spacer"> </ion-row>
+            <ion-row>
+                <ion-col size="12">
+                    <ion-input
+                        type="text"
+                        formControlName="username"
+                        name="displayname"
+                        placeholder="BENUTZERNAME"
+                    >
+                    </ion-input>
+                </ion-col>
+            </ion-row>
+            <ion-row class="actionButtons">
+                <ion-col size="12">
+                    <ion-button
+                        expand="full"
+                        (click)="sendRegisterForm()"
+                        [disabled]="!registerForm.valid"
+                    >
+                        REGISTRIEREN
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+</ion-content>

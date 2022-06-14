@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding ion-text-center">
+    <form [formGroup]="loginForm" (keydown.enter)="sendLoginForm()">
+        <ion-grid fixed>
+            <ion-row>
+                <ion-col size="12">
+                    <img src="/assets/icon.png" style="width: 50%;" class="icon-small" />
+                </ion-col>
+                <ion-col size="12" class="ion-padding-top">
+                    <h1>Anmelden</h1>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="12">
+                    <ion-input
+                        type="text"
+                        formControlName="username"
+                        placeholder="Username"
+                    >
+                    </ion-input>
+                </ion-col>
+            </ion-row>
+            <ion-row class="actionButtons">
+                <ion-col size="12">
+                    <ion-button
+                        type="submit"
+                        expand="full"
+                        [disabled]="!loginForm.valid"
+                        (click)="sendLoginForm()"
+                    >
+                        LOGIN
+                    </ion-button>
+                </ion-col>
+                <hr>
+                <ion-col size="12">
+                    <ion-button
+                        color="dark"
+                        expand="full"
+                        fill="clear"
+                        (click)="navigateToRegister()"
+                    >
+                        ACCOUNT ERSTELLEN
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+</ion-content>
