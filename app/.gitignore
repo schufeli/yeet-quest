@@ -36,3 +36,7 @@ npm-debug.log*
 /android/*
 /android/
 /androidcd 
+
+resources/android/splash
+resources/android/icon
+resources/ios
