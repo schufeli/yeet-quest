@@ -1,0 +1,373 @@
+{
+	"info": {
+		"_postman_id": "5d75200e-843b-4d28-9640-b9fbe5d11878",
+		"name": "YeetQuest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4731699"
+	},
+	"item": [
+		{
+			"name": "Chats",
+			"item": [
+				{
+					"name": "Chats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/chats",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"chats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Chat",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/chats/6cd112bd-e094-424e-94d0-8318ff56a02b",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"chats",
+								"6cd112bd-e094-424e-94d0-8318ff56a02b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Chat with Messages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/chats/6cd112bd-e094-424e-94d0-8318ff56a02b/messages",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"chats",
+								"6cd112bd-e094-424e-94d0-8318ff56a02b",
+								"messages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Chat with Quests",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/chats/6cd112bd-e094-424e-94d0-8318ff56a02b/quests",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"chats",
+								"6cd112bd-e094-424e-94d0-8318ff56a02b",
+								"quests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Chat with Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/chats/6cd112bd-e094-424e-94d0-8318ff56a02b/users",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"chats",
+								"6cd112bd-e094-424e-94d0-8318ff56a02b",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Chat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Test1\",\r\n    \"description\": \"Chat for endpoint testing\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/chats",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"chats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": \"6cd112bd-e094-424e-94d0-8318ff56a02b\",\r\n        \"name\": \"Schufi\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/chats/6cd112bd-e094-424e-94d0-8318ff56a02b/add",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"chats",
+								"6cd112bd-e094-424e-94d0-8318ff56a02b",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": \"c1379aae-d5bf-40e9-a191-56e184298bea\",\r\n        \"name\": \"Schufi\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/chats/6cd112bd-e094-424e-94d0-8318ff56a02b/remove",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"chats",
+								"6cd112bd-e094-424e-94d0-8318ff56a02b",
+								"remove"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quests",
+			"item": [
+				{
+					"name": "New Quest",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"Grab some beers\",\r\n    \"chatId\": \"6cd112bd-e094-424e-94d0-8318ff56a02b\",\r\n    \"assigneId\": \"e3db95b1-4574-4259-9a1f-afcc2f8ffb48\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/quests",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"quests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Quest",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"8cc8c09f-5243-4540-89be-2206478be0a4\",\r\n    \"content\": \"asdfasdf\",\r\n    \"isCompleted\": true,\r\n    \"dueDate\": \"2022-06-13T15:36:55.1038108+02:00\",\r\n    \"assigneId\": \"c1379aae-d5bf-40e9-a191-56e184298bea\",\r\n    \"chatId\": \"6cd112bd-e094-424e-94d0-8318ff56a02b\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/quests",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"quests"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/users",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/users/c1379aae-d5bf-40e9-a191-56e184298bea",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"users",
+								"c1379aae-d5bf-40e9-a191-56e184298bea"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User with Chats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/users/c1379aae-d5bf-40e9-a191-56e184298bea/chats",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"users",
+								"c1379aae-d5bf-40e9-a191-56e184298bea",
+								"chats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Schufi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/users",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
