@@ -1,5 +1,4 @@
 ﻿using KoBuApp.Extensions;
-using Microsoft.Extensions.DependencyInjection;
 using System.Text.Json.Serialization;
 using YeetQuest.Hubs;
 

@@ -23,9 +23,10 @@ namespace KoBuApp.Extensions
             });
 
             app.UseCors(options => options
-                .AllowAnyOrigin()
+                .AllowAnyMethod()
                 .AllowAnyHeader()
-                .SetIsOriginAllowed(origin => true));
+                .AllowCredentials()
+                .WithOrigins("http://localhost:8100"));
         }
 
         /// <summary>

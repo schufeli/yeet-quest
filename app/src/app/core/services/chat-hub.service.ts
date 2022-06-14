@@ -18,7 +18,10 @@ export class ChatHubService {
 
   public connect() {
     this.connection.start()
-      .then(() => console.log('Connected'))
-      .catch(err => console.error(err));
+      .then(() => this.connected = true)
+      .catch(err => {
+        console.error(err);
+        this.connected = false;
+      });
   }
 }
