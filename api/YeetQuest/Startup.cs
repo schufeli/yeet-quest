@@ -1,5 +1,7 @@
 ﻿using KoBuApp.Extensions;
+using Microsoft.Extensions.DependencyInjection;
 using System.Text.Json.Serialization;
+using YeetQuest.Hubs;
 
 namespace KoBuApp
 {
@@ -24,6 +26,11 @@ namespace KoBuApp
 
             services.AddSwagger();
 
+            services.AddSignalR(options =>
+            {
+                options.EnableDetailedErrors = true;
+            });
+
             services.AddHealthChecks(_configuration);
         }
 
@@ -40,6 +47,7 @@ namespace KoBuApp
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<ChatHub>("/chat-hub");
                 endpoints.MapHealthChecksExtension("healthcheck");
             });
         }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ChatHubService } from '../core/services/chat-hub.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,9 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private chatHubService: ChatHubService) {}
 
+  ngOnInit() {
+    this.chatHubService.connect();
+  }
 }
