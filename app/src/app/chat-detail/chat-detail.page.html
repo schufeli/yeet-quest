@@ -1,0 +1,136 @@
+<ion-header>
+  <ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-button color="dark" fill="clear" slot="start" (click)="navigateToHome()">
+      <ion-icon slot="icon-only" name="chevron-back"></ion-icon>
+    </ion-button>
+    <ion-avatar class="chat-avatar">
+      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+    </ion-avatar>
+  </ion-buttons>
+    <ion-title class="ion-padding">
+      Chatname
+    </ion-title>      
+    <ion-button color="dark" fill="clear" slot="end" (click)="mockNavSettings()">
+      <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+    </ion-button>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-no-padding">
+    <div
+        #scrollMe
+        class="chat-nachrichten"
+        (swipeLeft)="swipeEvent($event)"
+        (swipeRight)="swipeEvent($event)"
+    >
+        <ion-list>
+            <!-- <div
+                class="messages"
+                *ngFor="let chat of chatList | async"
+                [class.other]="chat.username === this.currentUser"
+            >
+                <div class="message">
+                    <span>
+                        <h3
+                            *ngIf="chat.username"
+                            [style.color]="stringToColor(chat.username)"
+                        >
+                            {{chat.username}}
+                        </h3>
+                        <p *ngIf="chat.text">{{chat.text}}</p>
+                    </span>
+                    <div class="time" *ngIf="showDates">{{chat.date}}</div>
+                </div>
+            </div> -->
+            <div class="messages other">
+              <div class="message">
+                <span>
+                  <h3>JoeMama</h3>
+                  <p>Lorem ipsum dolor sit amet con la reb whence iust</p>
+                  <div class="time">15.20</div>
+                </span>
+              </div>
+            </div>
+            <div class="messages other">
+              <div class="message">
+                <span>
+                  <h3>JoeMama</h3>
+                  <p>Lorem ipsum dolor sit amet con la reb whence iust</p>
+                  <div class="time">15.25</div>
+                </span>
+              </div>
+            </div>
+            <div class="messages other">
+              <div class="message">
+                <span>
+                  <h3>JoeMama</h3>
+                  <p>Lorem ipsum dolor sit amet con la reb whence iust</p>
+                  <div class="time">15.30</div>
+                </span>
+              </div>
+            </div>
+            <div class="messages">
+              <div class="message">
+                <span>
+                  <h3>Ich</h3>
+                  <p>Lorem ipsum dolor sit amet con la reb whence iust</p>
+                  <div class="time">15.30</div>
+                </span>
+              </div>
+            </div>
+            <div class="messages other">
+              <div class="message">
+                <span>
+                  <h3>JoeMama</h3>
+                  <p>Lorem ipsum dolor sit amet con la reb whence iust</p>
+                  <div class="time">15.30</div>
+                </span>
+              </div>
+            </div>
+            <div class="messages">
+              <div class="message">
+                <span>
+                  <h3>Ich</h3>
+                  <p>Lorem ipsum dolor sit amet con la reb whence iust</p>
+                  <div class="time">15.30</div>
+                </span>
+              </div>
+            </div>
+            <div class="messages">
+              <div class="message">
+                <span>
+                  <h3>Ich</h3>
+                  <p>Lorem ipsum dolor sit amet con la reb whence iust</p>
+                  <div class="time">15.30</div>
+                </span>
+              </div>
+            </div>
+        </ion-list>
+    </div>
+    <form class="chat-eingabe">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="10">
+                    <ion-input
+                        autofocus="true"
+                        type="text"
+                        name="message"
+                        [(ngModel)]="message"
+                        (keyup.enter)="sendMessage()"
+                    >
+                    </ion-input>
+                </ion-col>
+                <ion-col size="2" class="ion-text-right">
+                    <ion-button color="danger" (click)="sendMessage()">
+                        <ion-icon *ngIf="!showSpinnerIcon" name="send">
+                        </ion-icon>
+                        <ion-spinner *ngIf="showSpinnerIcon" name="bubbles">
+                        </ion-spinner>
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+</ion-content>

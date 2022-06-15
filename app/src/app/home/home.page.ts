@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ChatHubService } from '../core/services/chat-hub.service';
 import { SessionService } from '../core/services/session.service';
 import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 import { UserService } from '../core/services/user.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class HomePage {
     private sessionService: SessionService,
     private chatHubService: ChatHubService,
     public alertController: AlertController,
-    ) { }
+    private router: Router,
+  ) { }
 
   ngOnInit() {
     this.sessionService.set({ id: "e3db95b1-4574-4259-9a1f-afcc2f8ffb48", name: "JoeMama" }); // TODO: Remove after development (when better session handling is implemented)
@@ -62,6 +64,10 @@ export class HomePage {
   }
 
   getDetailChat(){
-    
+
+  }
+
+  mockDetailNav(){
+    this.router.navigate(['/chat-detail'])
   }
 }
