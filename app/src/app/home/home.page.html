@@ -27,11 +27,11 @@
           </ion-item-option>
         </ion-item-options>
 
-        <ion-item>
+        <ion-item (click)="getDetailChat(chat.id)">
           <ion-note slot="start">
             <ion-label>JoeMama</ion-label>
           </ion-note>
-          <div (click)="getChat(chat)">
+          <div>
             <ion-label>This Chat</ion-label>
             <ion-note>15.06.2022</ion-note>
           </div>
@@ -46,11 +46,11 @@
           </ion-item-option>
         </ion-item-options>
 
-        <ion-item>
+        <ion-item (click)="getDetailChat(chat.id)">
           <ion-note slot="start">
             <ion-label>JohnDoe</ion-label>
           </ion-note>
-          <div (click)="getChat(chat)">
+          <div >
             <ion-label>Other Chat</ion-label>
             <ion-note>15.06.2022</ion-note>
           </div>

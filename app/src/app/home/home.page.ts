@@ -55,4 +55,13 @@ export class HomePage {
     });
     await alert.present();
   }
+
+  deleteChat(data){
+    console.log(data);
+    // this.ShoppingListRef.remove(list.id);
+  }
+
+  getDetailChat(){
+    
+  }
 }
