@@ -1,30 +1,31 @@
-#container{
-  text-align: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  background-image: url(../../assets/icon/favicon.png)
-  p {
-    font-size: 16px;
-    line-height: 22px;
+// #container{
+//   text-align: center;
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   top: 50%;
+//   transform: translateY(-50%);
+//   p {
+//     font-size: 16px;
+//     line-height: 22px;
 
-    color: #8c8c8c;
+//     color: #8c8c8c;
 
-    margin: 0;
-  }
-  a {
-    text-decoration: none;
-  }
-  strong {
-    font-size: 20px;
-    line-height: 26px;
-  }
-}
-.img-icon{
-  width: 100px;
-  height: 100px;
-}
-ion-content{
+//     margin: 0;
+//   }
+//   a {
+//     text-decoration: none;
+//   }
+//   strong {
+//     font-size: 20px;
+//     line-height: 26px;
+//   }
+// }
+.bg-image-container{
+  background-image: url(../../assets/images/icon.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  height: 100%;
+  inset: 0;
 }

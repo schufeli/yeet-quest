@@ -15,10 +15,10 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">YeetQuest</ion-title>
     </ion-toolbar>
   </ion-header>
-  <div class="">
+  <div class="bg-image-container">
     <ion-item-sliding>
       <ng-container>
         <ion-item-options side="start">
@@ -58,4 +58,9 @@
       </ng-container>
     </ion-item-sliding>
   </div>
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button (click)="openAddChatModal()" color="success">
+      <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
