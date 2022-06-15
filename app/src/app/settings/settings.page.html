@@ -14,7 +14,7 @@
     <ion-title>Chatname</ion-title>
   </div>
   <hr>
-  <ion-button color="secondary" expand="full" fill="clear">
+  <ion-button color="secondary" expand="full" fill="clear" (click)="mockNavigateToQuests()">
     <ion-grid>
       <ion-row>
         <ion-col size="8">
@@ -44,7 +44,7 @@
   </ion-grid>
   <ion-item-sliding>
     <ng-container>
-      <ion-item (click)="mockDetailNav()">
+      <ion-item>
         <ion-avatar>
           <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
         </ion-avatar>

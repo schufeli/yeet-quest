@@ -15,9 +15,9 @@
     overflow: auto;
     background-color: var(--ion-color-light-shade);
     span {
-        background-color: var(--ion-color-success) !important;
+        color: var(--ion-color-light) !important;
+        background: var(--ion-color-primary) !important;
         display: inline-block !important;
-        color: var(--ion-color-dark) !important;
         padding: 10px !important;
         border-radius: 10px !important;
         text-align: left !important;
@@ -85,7 +85,7 @@
         transform: translate3d(0, 0, 0) !important;
     }
 }
-.messages.other {
+.messages:not(.other) {
     .message {
         -webkit-transform: translate3d(0, 0, 0) !important;
         -moz-transform: translate3d(0, 0, 0) !important;
@@ -93,7 +93,7 @@
         text-align: right !important;
     }
     span {
-        color: var(--ion-color-light) !important;
-        background: var(--ion-color-primary) !important;
+        background-color: var(--ion-color-success) !important;
+        color: var(--ion-color-dark) !important;
     }
 }

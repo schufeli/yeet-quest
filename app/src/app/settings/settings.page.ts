@@ -19,4 +19,8 @@ export class SettingsPage implements OnInit {
     this.router.navigate(['/chat-detail'])
   }
 
+  mockNavigateToQuests(){
+    this.router.navigate(['/quest-detail'])
+  }
+
 }

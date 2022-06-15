@@ -6,9 +6,6 @@
     <ion-title>
       YeetQuest
     </ion-title>
-    <ion-button color="dark" fill="clear" slot="end" (click)="navigateToArchive()">
-      <ion-icon name="chevron-forward"></ion-icon>
-    </ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -21,12 +18,6 @@
   <div class="bg-image-container">
     <ion-item-sliding>
       <ng-container>
-        <ion-item-options side="start">
-          <ion-item-option (click)="deleteChat(chat)" color="danger" expandable>
-            <ion-icon name="trash-outline"></ion-icon>
-          </ion-item-option>
-        </ion-item-options>
-
         <!-- <ion-item (click)="getDetailChat(chat.id)"> -->
         <ion-item (click)="mockDetailNav()">
           <ion-avatar>
@@ -37,6 +28,11 @@
             <ion-note>Last Message</ion-note>
           </div>
         </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option (click)="deleteChat(chat)" color="danger" expandable>
+            <ion-icon name="trash-outline"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
       </ng-container>
     </ion-item-sliding>
     <ion-item-sliding>

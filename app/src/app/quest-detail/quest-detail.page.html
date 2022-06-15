@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button color="dark" fill="clear" slot="start" (click)="mockNavigateToSettings()">
+      <ion-icon slot="icon-only" name="chevron-back"></ion-icon>
+    </ion-button>
+    <ion-title>Tasks</ion-title>
+    <ion-button color="success" fill="clear" slot="end" (click)="shuffleTasks()">
+      <ion-icon slot="icon-only" name="shuffle-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-sliding>
+    <ng-container>
+      <!-- <ion-item (click)="getDetailChat(chat.id)"> -->
+      <ion-item (click)="mockDetailNav()">
+        <div class="ion-padding">
+          <ion-label>Item #1</ion-label>
+          <ion-note>JoeMama Benz</ion-note>
+        </div>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option (click)="deleteChat(chat)" color="danger" expandable>
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ng-container>
+  </ion-item-sliding>
+  <ion-item-sliding>
+    <ng-container>
+      <!-- <ion-item (click)="getDetailChat(chat.id)"> -->
+      <ion-item (click)="mockDetailNav()">
+        <div class="ion-padding">
+          <ion-label>Item #2</ion-label>
+          <ion-note>JoeMama Benz</ion-note>
+        </div>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option (click)="deleteChat(chat)" color="danger" expandable>
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ng-container>
+  </ion-item-sliding>
+  <ion-item-sliding>
+    <ng-container>
+      <!-- <ion-item (click)="getDetailChat(chat.id)"> -->
+      <ion-item (click)="mockDetailNav()">
+        <div class="ion-padding">
+          <ion-label>Item #3</ion-label>
+          <ion-note>JoeMama Benz</ion-note>
+        </div>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option (click)="deleteChat(chat)" color="danger" expandable>
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ng-container>
+  </ion-item-sliding>
+
+  <ion-fab horizontal="center" vertical="bottom" slot="fixed">
+    <ion-fab-button (click)="openAddQuestTaskModal()" color="success">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
