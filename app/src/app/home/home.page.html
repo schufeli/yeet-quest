@@ -1,8 +1,14 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>
-      Blank
+      YeetQuest
     </ion-title>
+    <ion-button color="dark" fill="clear" slot="end" (click)="navigateToArchive()">
+      <ion-icon name="chevron-forward"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -12,9 +18,44 @@
       <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
   </ion-header>
+  <div class="">
+    <ion-item-sliding>
+      <ng-container>
+        <ion-item-options side="start">
+          <ion-item-option (click)="deleteChat(chat)" color="danger" expandable>
+            <ion-icon name="trash-outline"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+        <ion-item>
+          <ion-note slot="start">
+            <ion-label>JoeMama</ion-label>
+          </ion-note>
+          <div (click)="getChat(chat)">
+            <ion-label>This Chat</ion-label>
+            <ion-note>15.06.2022</ion-note>
+          </div>
+        </ion-item>
+      </ng-container>
+    </ion-item-sliding>
+    <ion-item-sliding>
+      <ng-container>
+        <ion-item-options side="start">
+          <ion-item-option (click)="deleteChat(chat)" color="danger" expandable>
+            <ion-icon name="trash-outline"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+
+        <ion-item>
+          <ion-note slot="start">
+            <ion-label>JohnDoe</ion-label>
+          </ion-note>
+          <div (click)="getChat(chat)">
+            <ion-label>Other Chat</ion-label>
+            <ion-note>15.06.2022</ion-note>
+          </div>
+        </ion-item>
+      </ng-container>
+    </ion-item-sliding>
   </div>
 </ion-content>
