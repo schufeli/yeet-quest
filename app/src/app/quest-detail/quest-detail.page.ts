@@ -17,7 +17,32 @@ export class QuestDetailPage implements OnInit {
   ngOnInit() {
   }
   mockNavigateToSettings(){
-    this.router.navigate(['/chat-detail'])
+    this.router.navigate(['/settings'])
+  }
+
+  async deleteQuestItem(){
+    const alert = await this.alertController.create({
+      header: 'Item löschen?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+        }, 
+        {
+          text: 'Ja',
+          cssClass: 'alertCancel',
+          handler: (data) => {
+            if (data.chatName !== "") {
+              console.log('this');
+            } else {
+                return false;
+            }
+          }
+        }
+      ]
+    });
+    await alert.present();
   }
 
   async openAddQuestTaskModal(){

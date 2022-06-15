@@ -58,9 +58,29 @@ export class HomePage {
     await alert.present();
   }
 
-  deleteChat(data){
-    console.log(data);
-    // this.ShoppingListRef.remove(list.id);
+  async deleteChat(data){
+    const alert = await this.alertController.create({
+      header: 'Wirklich löschen?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+        }, 
+        {
+          text: 'Ja',
+          cssClass: 'alertCancel',
+          handler: (data) => {
+            if (data.chatName !== "") {
+              console.log('this');
+            } else {
+                return false;
+            }
+          }
+        }
+      ]
+    });
+    await alert.present();
   }
 
   getDetailChat(){

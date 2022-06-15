@@ -53,7 +53,7 @@
         </div>
       </ion-item>
       <ion-item-options side="end">
-        <ion-item-option (click)="deleteChat(chat)" color="danger" expandable>
+        <ion-item-option (click)="deleteUserFromChat()" color="danger" expandable>
           <ion-icon name="remove-circle-outline"></ion-icon>
         </ion-item-option>
       </ion-item-options>
@@ -70,7 +70,7 @@
         </div>
       </ion-item>
       <ion-item-options side="end">
-        <ion-item-option (click)="deleteChat(chat)" color="danger" expandable>
+        <ion-item-option (click)="deleteUserFromChat()" color="danger" expandable>
           <ion-icon name="trash-outline"></ion-icon>
         </ion-item-option>
       </ion-item-options>
@@ -78,7 +78,7 @@
   </ion-item-sliding>
 </ion-content>
 <ion-footer>
-  <ion-button color="danger" expand="full">
+  <ion-button (click)="leaveChat()" color="danger" expand="full">
   Verlassen
   </ion-button>
 </ion-footer>
