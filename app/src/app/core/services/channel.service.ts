@@ -69,8 +69,8 @@ export class ChannelService {
    * @param user User object (see api doc)
    * @returns Http 200 (Ok Result)
    */
-  public addUser(id: string, user: object) {
-    return this.http.put(`${environment.api}/chats/${id}/add`, user);
+  public addUsers(id: string, users: object[]) {
+    return this.http.put(`${environment.api}/chats/${id}/add`, users);
   }
 
   /**
@@ -79,7 +79,7 @@ export class ChannelService {
    * @param user User object (see api doc)
    * @returns HTTP 200 (Ok Result)
    */
-  public removeUser(id: string, user: object) {
-    return this.http.put(`${environment.api}/chats/${id}/remove`, user);
+  public removeUsers(id: string, users: object[]) {
+    return this.http.put(`${environment.api}/chats/${id}/remove`, users);
   }
 }
