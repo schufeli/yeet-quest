@@ -1,0 +1,13 @@
+hr{
+    border-width: .25px;
+}
+.chat-container{
+    margin: 15px auto;
+    .chat-avatar{
+        margin: 15px auto;
+        width: 100px !important;
+        max-width: 100px !important;
+        height: 100px !important;
+        max-height: 100px !important;
+    }
+}

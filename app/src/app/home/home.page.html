@@ -1,7 +1,10 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>
-      Blank
+      YeetQuest
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,12 +12,53 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">YeetQuest</ion-title>
     </ion-toolbar>
   </ion-header>
+  <div class="bg-image-container">
+    <ion-item-sliding>
+      <ng-container>
+        <!-- <ion-item (click)="getDetailChat(chat.id)"> -->
+        <ion-item (click)="mockDetailNav()">
+          <ion-avatar>
+            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+          </ion-avatar>
+          <div class="ion-padding">
+            <ion-label>This Chat</ion-label>
+            <ion-note>Last Message</ion-note>
+          </div>
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option (click)="deleteChat(chat)" color="danger" expandable>
+            <ion-icon name="trash-outline"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ng-container>
+    </ion-item-sliding>
+    <ion-item-sliding>
+      <ng-container>
+        <ion-item-options side="start">
+          <ion-item-option (click)="deleteChat(chat)" color="danger" expandable>
+            <ion-icon name="trash-outline"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+        <!-- <ion-item (click)="getDetailChat(chat.id)"> -->
+        <ion-item (click)="mockDetailNav()">
+          <ion-avatar>
+            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+          </ion-avatar>
+          <div class="ion-padding">
+            <ion-label>Other Chat</ion-label>
+            <ion-note>Last Message</ion-note>
+          </div>
+        </ion-item>
+      </ng-container>
+    </ion-item-sliding>
   </div>
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button (click)="openAddChatModal()" color="success">
+      <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

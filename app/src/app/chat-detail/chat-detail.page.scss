@@ -1,0 +1,99 @@
+.chat-avatar  {     
+    width:100% !important;  
+    height : 100% !important;  
+    max-width: 30px !important;  //any size
+    max-height: 50px !important; //any size 
+}
+.container {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.chat-nachrichten {
+    height: calc(100% - 60px);
+    overflow: auto;
+    background-color: var(--ion-color-light-shade);
+    span {
+        color: var(--ion-color-dark) !important;
+        background: var(--ion-color-primary) !important;
+        display: inline-block !important;
+        padding: 10px !important;
+        border-radius: 10px !important;
+        text-align: left !important;
+        max-width: 240px !important;
+    }
+}
+.chat-eingabe {
+    position: absolute;
+    bottom: 0px;
+    display: block;
+    width: 100%;
+    button {
+        margin: 0px !important;
+    }
+    ion-spinner {
+        width: 12px;
+        height: 12px;
+    }
+    ion-spinner * {
+        stroke: var(--ion-color-light);
+        fill: white;
+        margin: 0px !important;
+    }
+}
+.messages {
+    display: -webkit-box !important;
+    display: -moz-box !important;
+    display: -ms-flexbox !important;
+    display: -webkit-flex !important;
+    display: flex !important;
+    -webkit-align-content: center !important;
+    -ms-flex-line-pack: center !important;
+    align-content: center !important;
+    -webkit-box-align: center !important;
+    -moz-box-align: center !important;
+    -webkit-align-items: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    margin-bottom: 5px !important;
+    h3 {
+        font-size: 12px;
+        margin: 0px;
+        padding-bottom: 10px;
+    }
+    p {
+        margin: 0px;
+    }
+    .time {
+        font-size: 10px;
+        color: rgb(29, 29, 29);
+    }
+    .message {
+        -webkit-box-flex: 1 !important;
+        -moz-box-flex: 1 !important;
+        -webkit-flex: 1 1 auto !important;
+        -ms-flex: 1 1 auto !important;
+        flex: 1 1 auto !important;
+        padding: 5px !important;
+        -webkit-transition: all 250ms ease-in-out !important;
+        transition: all 250ms ease-in-out !important;
+        overflow: hidden !important;
+        text-align: left !important;
+        -webkit-transform: translate3d(0, 0, 0) !important;
+        -moz-transform: translate3d(0, 0, 0) !important;
+        transform: translate3d(0, 0, 0) !important;
+    }
+}
+.messages:not(.other) {
+    .message {
+        -webkit-transform: translate3d(0, 0, 0) !important;
+        -moz-transform: translate3d(0, 0, 0) !important;
+        transform: translate3d(0, 0, 0) !important;
+        text-align: right !important;
+    }
+    span {
+        background-color: var(--ion-color-success) !important;
+        color: var(--ion-color-dark) !important;
+    }
+}
