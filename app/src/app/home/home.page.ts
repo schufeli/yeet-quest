@@ -98,11 +98,7 @@ export class HomePage {
     await alert.present();
   }
 
-  getDetailChat(){
-
-  }
-
-  mockDetailNav(){
-    this.router.navigate(['/chat-detail'])
+  join(chatId) {
+    this.chatHubService.join(chatId);
   }
 }

@@ -8,8 +8,8 @@
       <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
     </ion-avatar>
   </ion-buttons>
-    <ion-title class="ion-padding">
-      Chatname
+    <ion-title class="ion-padding" *ngIf="this.chat !== null">
+      {{ this.chat['name']}}
     </ion-title>      
     <ion-button color="dark" fill="clear" slot="end" (click)="mockNavSettings()">
       <ion-icon name="ellipsis-vertical-outline"></ion-icon>
@@ -22,92 +22,19 @@
     <div
         #scrollMe
         class="chat-nachrichten"
-        (swipeLeft)="swipeEvent($event)"
-        (swipeRight)="swipeEvent($event)"
     >
-        <ion-list>
-            <!-- <div
-                class="messages"
-                *ngFor="let chat of chatList | async"
-                [class.other]="chat.username === this.currentUser"
-            >
-                <div class="message">
-                    <span>
-                        <h3
-                            *ngIf="chat.username"
-                            [style.color]="stringToColor(chat.username)"
-                        >
-                            {{chat.username}}
-                        </h3>
-                        <p *ngIf="chat.text">{{chat.text}}</p>
-                    </span>
-                    <div class="time" *ngIf="showDates">{{chat.date}}</div>
-                </div>
-            </div> -->
-            <div class="messages other">
-              <div class="message">
-                <span>
-                  <h3>JoeMama</h3>
-                  <p>Lorem ipsum dolor sit amet con la reb whence iust</p>
-                  <div class="time">15.20</div>
-                </span>
-              </div>
-            </div>
-            <div class="messages other">
-              <div class="message">
-                <span>
-                  <h3>JoeMama</h3>
-                  <p>Lorem ipsum dolor sit amet con la reb whence iust</p>
-                  <div class="time">15.25</div>
-                </span>
-              </div>
-            </div>
-            <div class="messages other">
-              <div class="message">
-                <span>
-                  <h3>JoeMama</h3>
-                  <p>Lorem ipsum dolor sit amet con la reb whence iust</p>
-                  <div class="time">15.30</div>
-                </span>
-              </div>
-            </div>
-            <div class="messages">
-              <div class="message">
-                <span>
-                  <h3>Ich</h3>
-                  <p>Lorem ipsum dolor sit amet con la reb whence iust</p>
-                  <div class="time">15.30</div>
-                </span>
-              </div>
-            </div>
-            <div class="messages other">
-              <div class="message">
-                <span>
-                  <h3>JoeMama</h3>
-                  <p>Lorem ipsum dolor sit amet con la reb whence iust</p>
-                  <div class="time">15.30</div>
-                </span>
-              </div>
-            </div>
-            <div class="messages">
-              <div class="message">
-                <span>
-                  <h3>Ich</h3>
-                  <p>Lorem ipsum dolor sit amet con la reb whence iust</p>
-                  <div class="time">15.30</div>
-                </span>
-              </div>
-            </div>
-            <div class="messages">
-              <div class="message">
-                <span>
-                  <h3>Ich</h3>
-                  <p>Lorem ipsum dolor sit amet con la reb whence iust</p>
-                  <div class="time">15.30</div>
-                </span>
-              </div>
-            </div>
-        </ion-list>
+        
+      <ion-list>
+        <div class="messages other" *ngFor="let message of messages">
+          <div class="message">
+            <span>
+              <h3>{{ message['authorName'] }}</h3>
+              <p>{{ message['content']}}</p>
+              <div class="time">{{ message['createdDateTime'] | date: 'shortTime' }}</div>
+            </span>
+          </div>
+        </div>
+      </ion-list>
     </div>
     <form class="chat-eingabe">
         <ion-grid>
