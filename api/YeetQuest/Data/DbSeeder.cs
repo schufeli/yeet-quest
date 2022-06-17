@@ -34,7 +34,8 @@ namespace YeetQuest.Data
                             Content = "Does someone now what SW15 is?",
                             CreatedDateTime = DateTime.Now,
                             ChatId = Guid.Parse("6cd112bd-e094-424e-94d0-8318ff56a02b"),
-                            AuthorId = Guid.Parse("e3db95b1-4574-4259-9a1f-afcc2f8ffb48")
+                            AuthorId = Guid.Parse("e3db95b1-4574-4259-9a1f-afcc2f8ffb48"),
+                            AuthorName = "JoeMama"
                         },
                         new Message
                         {
@@ -42,7 +43,8 @@ namespace YeetQuest.Data
                             Content = "No",
                             CreatedDateTime= DateTime.Now.AddMinutes(25),
                             ChatId = Guid.Parse("6cd112bd-e094-424e-94d0-8318ff56a02b"),
-                            AuthorId = Guid.Parse("c1379aae-d5bf-40e9-a191-56e184298bea")
+                            AuthorId = Guid.Parse("c1379aae-d5bf-40e9-a191-56e184298bea"),
+                            AuthorName = "Jaejer"
                         }
                     },
                     Quests = new List<Quest>

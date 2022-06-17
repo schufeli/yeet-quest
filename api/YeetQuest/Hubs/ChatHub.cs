@@ -29,11 +29,18 @@ namespace YeetQuest.Hubs
 
         [HubMethodName("SendMessage")]
         public async Task SendMessageAsync(string chatId, Message message) 
-        { 
-            DbContext.Messages.Add(message);
-            await DbContext.SaveChangesAsync();
+        {
+            var user = DbContext.Users.Where(u => u.Id == message.AuthorId).SingleOrDefault();
 
-            await Clients.Group(chatId).SendAsync("ReceiveMessage", message);
+            if (user != null)
+            {
+                message.AuthorName = user.Name;
+
+                DbContext.Messages.Add(message);
+                await DbContext.SaveChangesAsync();
+
+                await Clients.Group(chatId).SendAsync("ReceiveMessage", message);
+            }
         }
     }
 }
