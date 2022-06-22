@@ -10,7 +10,7 @@ import { SessionService } from '../core/services/session.service';
   styleUrls: ['./chat-detail.page.scss'],
 })
 export class ChatDetailPage implements OnInit {
-  @ViewChild('inputField', {static: false}) messageInput;
+  @ViewChild('messageField', {static: false}) messageInput;
   @ViewChild('scrollMe', {static: false}) private myScrollContainer: ElementRef;
 
   chat: Object = null;
@@ -56,7 +56,6 @@ export class ChatDetailPage implements OnInit {
 
   navigateToHome(){
     this.router.navigate(['']);
-    this.chatHubService.leave(this.chatHubService.activeChatId);
   }
 
   mockNavSettings(){
@@ -69,8 +68,7 @@ export class ChatDetailPage implements OnInit {
       authorId: this.user['id'],
       chatId: this.chat['id']
     }
-
     this.chatHubService.sendMessage(this.chat['id'], body)
+    this.messageInput.el.value = "";
   }
-
 }

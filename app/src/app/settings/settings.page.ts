@@ -4,24 +4,27 @@ import { AlertController } from '@ionic/angular';
 import { ChannelService } from '../core/services/channel.service';
 import { ChatHubService } from '../core/services/chat-hub.service';
 import { SessionService } from '../core/services/session.service';
+import { UserService } from '../core/services/user.service';
 
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.page.html',
   styleUrls: ['./settings.page.scss'],
 })
-export class SettingsPage implements OnInit { 
+export class SettingsPage implements OnInit {
   chat: Object = null;
   users: Object[] = [];
   quests: Object[] = [];
   user: Object = null;
+  allUsers: Object[] = [];
 
   constructor(
     public alertController: AlertController,
     private router: Router,
     private chatService: ChannelService,
     private chatHubService: ChatHubService,
-    private sessionService: SessionService
+    private sessionService: SessionService,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
@@ -54,7 +57,7 @@ export class SettingsPage implements OnInit {
           text: 'Cancel',
           role: 'cancel',
           cssClass: 'secondary',
-        }, 
+        },
         {
           text: 'Ja',
           cssClass: 'alertCancel',
@@ -82,7 +85,7 @@ export class SettingsPage implements OnInit {
           text: 'Cancel',
           role: 'cancel',
           cssClass: 'secondary',
-        }, 
+        },
         {
           text: 'Ja',
           cssClass: 'alertCancel',
@@ -100,4 +103,24 @@ export class SettingsPage implements OnInit {
     await alert.present();
   }
 
+  addUser(user: Object) {
+    this.chatService.addUsers(this.chat['id'], [user])
+    .subscribe(() => {
+      this.allUsers.splice(this.allUsers.indexOf(user), 1);
+      this.users.push(user);
+    });
+  }
+
+  fetchUsers() {
+    this.allUsers = [];
+    this.userService.get()
+    .subscribe(response => {
+      response['data'].forEach(element => {
+          if (this.users.find(u => u['id'] === element['id'])) {
+          } else {
+            this.allUsers.push(element);
+          }
+      });
+    })
+  }
 }

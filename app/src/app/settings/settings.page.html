@@ -36,7 +36,7 @@
         <ion-note>{{ this.users.length }} Participants</ion-note>
       </ion-col>
       <ion-col size="2">
-        <ion-button color="success" fill="clear" id="open-modal">
+        <ion-button color="success" fill="clear" id="open-modal" (click)="fetchUsers()">
           <ion-icon slot="icon-only" name="person-add-outline"></ion-icon>
         </ion-button>
       </ion-col>
@@ -72,13 +72,13 @@
             <ion-button color="light" (click)="modal.dismiss()">Close</ion-button>
           </ion-buttons>
         </ion-toolbar>
-        <ion-list>
-          <ion-item (click)="mockAddUser()">
+        <ion-list *ngFor="let user of allUsers">
+          <ion-item (click)="addUser(user)">
             <ion-avatar slot="start">
               <ion-img src="https://picsum.photos/200"></ion-img>
             </ion-avatar>
             <ion-label>
-              <h2>JoeMama</h2>
+              <h2>{{ user['name'] }}</h2>
             </ion-label>
           </ion-item>
         </ion-list>
