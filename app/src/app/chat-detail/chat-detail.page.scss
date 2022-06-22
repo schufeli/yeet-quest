@@ -85,7 +85,7 @@
         transform: translate3d(0, 0, 0) !important;
     }
 }
-.messages:not(.other) {
+.messages.other {
     .message {
         -webkit-transform: translate3d(0, 0, 0) !important;
         -moz-transform: translate3d(0, 0, 0) !important;

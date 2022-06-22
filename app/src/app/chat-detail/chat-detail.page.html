@@ -25,7 +25,7 @@
     >
         
       <ion-list>
-        <div class="messages other" *ngFor="let message of messages">
+        <div class="messages" *ngFor="let message of messages" [class.other]="message['authorName'] === this.user">
           <div class="message">
             <span>
               <h3>{{ message['authorName'] }}</h3>
