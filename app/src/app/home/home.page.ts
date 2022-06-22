@@ -101,4 +101,8 @@ export class HomePage {
   join(chatId) {
     this.chatHubService.join(chatId);
   }
+
+  leave() {
+    this.chatHubService.leave(this.chatHubService.activeChatId);
+  }
 }

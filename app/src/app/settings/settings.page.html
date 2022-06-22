@@ -11,17 +11,17 @@
     <ion-avatar class="chat-avatar">
       <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
     </ion-avatar>
-    <ion-title>Chatname</ion-title>
+    <!-- <ion-title>Chatname</ion-title> -->
   </div>
   <hr>
   <ion-button color="secondary" expand="full" fill="clear" (click)="mockNavigateToQuests()">
-    <ion-grid>
+    <ion-grid *ngIf="this.quests !== []">
       <ion-row>
         <ion-col size="8">
-          Tasks
+          Quests
         </ion-col>
-        <ion-col size="2">
-          5
+        <ion-col size="2" *ngIf="this.chat !== null">
+          <!-- {{ this.quests.length }} -->
         </ion-col>
         <ion-col size="2">
           <ion-icon name="chevron-forward"></ion-icon>
@@ -30,10 +30,10 @@
     </ion-grid>
   </ion-button>
   <hr>
-  <ion-grid class="ion-padding">
+  <ion-grid class="ion-padding" *ngIf="this.users !== []">
     <ion-row>
       <ion-col size="10">
-        <ion-note>2 Participants</ion-note>
+        <ion-note>{{ this.users.length }} Participants</ion-note>
       </ion-col>
       <ion-col size="2">
         <ion-button color="success" fill="clear" (click)="addUserToChat()">
@@ -42,43 +42,30 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-item-sliding>
-    <ng-container>
-      <ion-item>
-        <ion-avatar>
-          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-        </ion-avatar>
-        <div class="ion-padding">
-          <ion-label>JoeMama Benz</ion-label>
-        </div>
-      </ion-item>
-      <ion-item-options side="end">
-        <ion-item-option (click)="deleteUserFromChat()" color="danger" expandable>
-          <ion-icon name="remove-circle-outline"></ion-icon>
-        </ion-item-option>
-      </ion-item-options>
-    </ng-container>
-  </ion-item-sliding>
-  <ion-item-sliding>
-    <ng-container>
-      <ion-item (click)="mockDetailNav()">
-        <ion-avatar>
-          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-        </ion-avatar>
-        <div class="ion-padding">
-          <ion-label>JoeMama Benz</ion-label>
-        </div>
-      </ion-item>
-      <ion-item-options side="end">
-        <ion-item-option (click)="deleteUserFromChat()" color="danger" expandable>
-          <ion-icon name="trash-outline"></ion-icon>
-        </ion-item-option>
-      </ion-item-options>
-    </ng-container>
-  </ion-item-sliding>
+  <div *ngIf="this.users !== []">
+    <div *ngFor="let user of users">
+      <ion-item-sliding>
+        <ng-container>
+          <ion-item>
+            <ion-avatar>
+              <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+            </ion-avatar>
+            <div class="ion-padding">
+              <ion-label>{{ user['name'] }}</ion-label>
+            </div>
+          </ion-item>
+          <ion-item-options side="end">
+            <ion-item-option (click)="deleteUserFromChat(user)" color="danger" expandable>
+              <ion-icon name="remove-circle-outline"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+        </ng-container>
+      </ion-item-sliding>
+    </div>
+  </div>
 </ion-content>
 <ion-footer>
-  <ion-button (click)="leaveChat()" color="danger" expand="full">
+  <ion-button (click)="leaveChat(user)" color="danger" expand="full">
   Verlassen
   </ion-button>
 </ion-footer>

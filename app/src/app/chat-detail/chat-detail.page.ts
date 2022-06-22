@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef  } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ChannelService } from '../core/services/channel.service';
 import { ChatHubService } from '../core/services/chat-hub.service';
+import { SessionService } from '../core/services/session.service';
 
 @Component({
   selector: 'app-chat-detail',
@@ -14,12 +15,14 @@ export class ChatDetailPage implements OnInit {
 
   chat: Object = null;
   messages: Object[];
+  user: Object = null;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private chatService: ChannelService,
-    private chatHubService: ChatHubService
+    private chatHubService: ChatHubService,
+    private sessionService: SessionService
   ) { }
 
   ngOnInit() {
@@ -29,7 +32,16 @@ export class ChatDetailPage implements OnInit {
     .subscribe(response => {
       this.chat = response['data']
       this.messages = response['data']['messages']
+
+      this.chatHubService.receiveMessage()
+        .subscribe(message => {
+          this.messages.push(message);
+        })
     });
+
+    this.user = this.sessionService.get();
+
+    this
   }
 
   ngAfterViewChecked() {
@@ -44,11 +56,21 @@ export class ChatDetailPage implements OnInit {
 
   navigateToHome(){
     this.router.navigate(['']);
-    this.chatHubService.leave();
+    this.chatHubService.leave(this.chatHubService.activeChatId);
   }
 
   mockNavSettings(){
     this.router.navigate(['/settings'])
+  }
+
+  sendMessage(message) {
+    const body = {
+      content: message,
+      authorId: this.user['id'],
+      chatId: this.chat['id']
+    }
+
+    this.chatHubService.sendMessage(this.chat['id'], body)
   }
 
 }

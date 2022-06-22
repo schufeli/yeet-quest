@@ -49,12 +49,13 @@ namespace YeetQuest.Controllers
         public IActionResult GetChatWithMessages(string id) 
         {
             var element = DbContext.Chats
-                .Include(e => e.Messages)
+                .Include(e => e.Messages.OrderBy(m => m.CreatedDateTime))
                 .Where(e => e.Id.Equals(Guid.Parse(id)))
                 .SingleOrDefault();
 
             if (element == null)
                 return NotFound("Chat");
+
 
             return new JsonResult(
                 new Response<Chat>(element));

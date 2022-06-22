@@ -39,7 +39,17 @@ namespace YeetQuest.Hubs
                 DbContext.Messages.Add(message);
                 await DbContext.SaveChangesAsync();
 
-                await Clients.Group(chatId).SendAsync("ReceiveMessage", message);
+                var msg = new Message
+                {
+                    Id = message.Id,
+                    AuthorId = message.AuthorId,
+                    AuthorName = message.AuthorName,
+                    ChatId = Guid.Parse(chatId),
+                    Content = message.Content,
+                    CreatedDateTime = message.CreatedDateTime
+                };
+
+                await Clients.Group(chatId).SendAsync("ReceiveMessage", msg);
             }
         }
     }
