@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) { }
+
+  loginForm : FormGroup;
 
   ngOnInit() {
+    this.loginForm = new FormGroup({
+      name: new FormControl('', Validators.required),
+    });
+  }
+
+  sendLoginForm(){
+    console.log('implement me');
+    
   }
 
 }
