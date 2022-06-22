@@ -100,7 +100,6 @@ export class QuestDetailPage implements OnInit {
                 assigneId: this.user['id']
               }
               this.questService.create(quest)
-              // this.users.find(u => u['id'] === element['assigneId'])['name']
                 .subscribe(response => {
                   response['data']['assigneName'] = this.users.find(u => u['id'] === response['data']['assigneId'])['name'];
                   this.quests.push(response['data']);
@@ -115,7 +114,16 @@ export class QuestDetailPage implements OnInit {
   }
 
   shuffleTasks() {
-
+    this.quests.forEach(element => {
+      const rand = Math.floor(Math.random() * (this.users.length) + 0);
+      element['assigneId'] = this.users[rand]['id'];
+      this.questService.update(element)
+        .subscribe(response => {
+          const user = this.users.find(u => u['id'] === element['assigneId']);
+          response['data']['assigneName'] = user['name'];
+          this.quests[this.quests.indexOf(element)] = response['data'];
+        });
+    });
   }
 
 }
