@@ -25,7 +25,6 @@ export class HomePage {
   user: Object;
 
   ngOnInit() {
-    this.sessionService.set({ id: "e3db95b1-4574-4259-9a1f-afcc2f8ffb48", name: "JoeMama" }); // TODO: Remove after development (when better session handling is implemented)
     this.user = this.sessionService.get();
     this.chatHubService.connect();
 
@@ -47,7 +46,7 @@ export class HomePage {
           text: 'Cancel',
           role: 'cancel',
           cssClass: 'secondary',
-        }, 
+        },
         {
           text: 'Ok',
           cssClass: 'primary',
@@ -79,7 +78,7 @@ export class HomePage {
           text: 'Cancel',
           role: 'cancel',
           cssClass: 'secondary',
-        }, 
+        },
         {
           text: 'Ja',
           cssClass: 'alertCancel',

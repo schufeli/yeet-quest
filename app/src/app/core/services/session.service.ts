@@ -15,7 +15,7 @@ export class SessionService {
   }
 
   public loggedIn() {
-    if (this.user.toString.length > 0) {
+    if (window.localStorage.getItem('user')) {
       return true;
     } 
     else {
