@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as signalR from '@aspnet/signalr';
 import { HubConnection } from '@aspnet/signalr';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -9,6 +10,8 @@ import { environment } from 'src/environments/environment';
 export class ChatHubService {
   public connected: boolean = false;
   private connection: HubConnection
+
+  public activeChatId: string = "6cd112bd-e094-424e-94d0-8318ff56a02b"; // TODO: Remove after development
   
   constructor() {
     this.connection = new signalR.HubConnectionBuilder()
@@ -23,5 +26,28 @@ export class ChatHubService {
         console.error(err);
         this.connected = false;
       });
+  }
+
+  public join(id: string) {
+    this.activeChatId = null;
+    this.connection.invoke("Join", id);
+    this.activeChatId = id;
+  }
+
+  public leave(id: string) {
+    this.connection.invoke("Leave", id);
+  }
+
+  public sendMessage(id: string, message: Object) {
+    this.connection.invoke("SendMessage", id, message);
+  }
+
+  public receiveMessage() {
+    return new Observable(subscriber => {
+      this.connection.on("ReceiveMessage", message => {
+        subscriber.next(message);
+      });
+    })
+    
   }
 }

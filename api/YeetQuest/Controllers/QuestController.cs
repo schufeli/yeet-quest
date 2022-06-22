@@ -1,5 +1,6 @@
 ﻿using KoBuApp.Entities;
 using Microsoft.AspNetCore.Mvc;
+using YeetQuest.ActionFilters;
 using YeetQuest.Controllers.Responses;
 using YeetQuest.Entities.Models;
 
@@ -38,6 +39,21 @@ namespace YeetQuest.Controllers
 
             return new JsonResult(
                 new Response<Quest>(element));
+        }
+
+        [HttpDelete("{id}")]
+        [ValidateGuidParameter]
+        public IActionResult Delete(string id)
+        {
+            var quest = DbContext.Quests
+                .SingleOrDefault(e => e.Id == Guid.Parse(id));
+
+            if (quest == null)
+                return NotFound("Qest");
+
+            DbContext.Quests.Remove(quest);
+            DbContext.SaveChanges();
+            return new OkResult();
         }
     }
 }

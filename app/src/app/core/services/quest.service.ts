@@ -26,4 +26,8 @@ export class QuestService {
   public update(quest: object) {
     return this.http.put(`${environment.api}/quests`, quest);
   }
+
+  public remove(id: string) {
+    return this.http.delete(`${environment.api}/quests/${id}`);
+  }
 }

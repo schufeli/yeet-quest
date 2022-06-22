@@ -15,16 +15,17 @@
       <ion-title size="large">YeetQuest</ion-title>
     </ion-toolbar>
   </ion-header>
+
   <div class="bg-image-container">
-    <ion-item-sliding>
+    <ion-item-sliding *ngFor="let chat of chats">
       <ng-container>
         <!-- <ion-item (click)="getDetailChat(chat.id)"> -->
-        <ion-item (click)="mockDetailNav()">
+        <ion-item (click)="leave()" (click)="join(chat['id'])" [routerLink]="['../chat-detail']">
           <ion-avatar>
             <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
           </ion-avatar>
           <div class="ion-padding">
-            <ion-label>This Chat</ion-label>
+            <ion-label>{{ chat['name'] }}</ion-label>
             <ion-note>Last Message</ion-note>
           </div>
         </ion-item>
@@ -35,27 +36,8 @@
         </ion-item-options>
       </ng-container>
     </ion-item-sliding>
-    <ion-item-sliding>
-      <ng-container>
-        <ion-item-options side="start">
-          <ion-item-option (click)="deleteChat(chat)" color="danger" expandable>
-            <ion-icon name="trash-outline"></ion-icon>
-          </ion-item-option>
-        </ion-item-options>
-
-        <!-- <ion-item (click)="getDetailChat(chat.id)"> -->
-        <ion-item (click)="mockDetailNav()">
-          <ion-avatar>
-            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-          </ion-avatar>
-          <div class="ion-padding">
-            <ion-label>Other Chat</ion-label>
-            <ion-note>Last Message</ion-note>
-          </div>
-        </ion-item>
-      </ng-container>
-    </ion-item-sliding>
   </div>
+
   <ion-fab horizontal="end" vertical="bottom" slot="fixed">
     <ion-fab-button (click)="openAddChatModal()" color="success">
       <ion-icon name="chatbubble-ellipses-outline"></ion-icon>

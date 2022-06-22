@@ -7,11 +7,11 @@ export class SessionService {
   private user: Object;
   
   public get() {
-    return this.user;
+    return JSON.parse(window.localStorage.getItem('user'));
   }
 
   public set(user: Object) {
-    this.user = user;
+    window.localStorage.setItem('user', JSON.stringify(user))
   }
 
   public loggedIn() {

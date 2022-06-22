@@ -10,6 +10,7 @@ namespace YeetQuest.Entities.Models
         public string? Content { get; set; }
         public DateTime CreatedDateTime { get; set; } = DateTime.Now;
         public Guid AuthorId { get; set; }
+        public string? AuthorName { get; set; }
         public User? Author { get; set; }
         public Guid ChatId { get; set; }
         public Chat? Chat { get; set; }

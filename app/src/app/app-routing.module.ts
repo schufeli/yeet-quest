@@ -10,7 +10,8 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-  },  {
+  },
+  {
     path: 'chat-detail',
     loadChildren: () => import('./chat-detail/chat-detail.module').then( m => m.ChatDetailPageModule)
   },

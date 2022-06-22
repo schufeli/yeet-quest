@@ -11,54 +11,26 @@
 </ion-header>
 
 <ion-content>
-  <ion-item-sliding>
-    <ng-container>
-      <!-- <ion-item (click)="getDetailChat(chat.id)"> -->
-      <ion-item>
-        <div class="ion-padding">
-          <ion-label>Item #1</ion-label>
-          <ion-note>JoeMama Benz</ion-note>
-        </div>
-      </ion-item>
-      <ion-item-options side="end">
-        <ion-item-option (click)="deleteQuestItem()" color="danger" expandable>
-          <ion-icon name="trash-outline"></ion-icon>
-        </ion-item-option>
-      </ion-item-options>
-    </ng-container>
-  </ion-item-sliding>
-  <ion-item-sliding>
-    <ng-container>
-      <!-- <ion-item (click)="getDetailChat(chat.id)"> -->
-      <ion-item>
-        <div class="ion-padding">
-          <ion-label>Item #2</ion-label>
-          <ion-note>JoeMama Benz</ion-note>
-        </div>
-      </ion-item>
-      <ion-item-options side="end">
-        <ion-item-option (click)="deleteQuestItem()" color="danger" expandable>
-          <ion-icon name="trash-outline"></ion-icon>
-        </ion-item-option>
-      </ion-item-options>
-    </ng-container>
-  </ion-item-sliding>
-  <ion-item-sliding>
-    <ng-container>
-      <!-- <ion-item (click)="getDetailChat(chat.id)"> -->
-      <ion-item>
-        <div class="ion-padding">
-          <ion-label>Item #3</ion-label>
-          <ion-note>JoeMama Benz</ion-note>
-        </div>
-      </ion-item>
-      <ion-item-options side="end">
-        <ion-item-option (click)="deleteQuestItem()" color="danger" expandable>
-          <ion-icon name="trash-outline"></ion-icon>
-        </ion-item-option>
-      </ion-item-options>
-    </ng-container>
-  </ion-item-sliding>
+  <div *ngIf="this.quests !== []">
+    <div *ngFor="let quest of quests">
+      <ion-item-sliding>
+        <ng-container>
+          <!-- <ion-item (click)="getDetailChat(chat.id)"> -->
+          <ion-item>
+            <div class="ion-padding">
+              <ion-label>{{ quest['content'] }}</ion-label>
+              <ion-note>{{ quest['assigneName'] }}</ion-note>
+            </div>
+          </ion-item>
+          <ion-item-options side="end">
+            <ion-item-option (click)="deleteQuestItem(quest)" color="danger" expandable>
+              <ion-icon name="trash-outline"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+        </ng-container>
+      </ion-item-sliding>
+    </div>
+  </div>
 
   <ion-fab horizontal="center" vertical="bottom" slot="fixed">
     <ion-fab-button (click)="openAddQuestTaskModal()" color="success">
