@@ -25,7 +25,7 @@
     >
         
       <ion-list>
-        <div class="messages other" *ngFor="let message of messages">
+        <div class="messages" *ngFor="let message of messages" [class.other]="message['authorName'] === this.user['name']">
           <div class="message">
             <span>
               <h3>{{ message['authorName'] }}</h3>
@@ -46,6 +46,7 @@
                         name="message"
                         [(ngModel)]="message"
                         (keyup.enter)="sendMessage(message)"
+                        #messageField
                     >
                     </ion-input>
                 </ion-col>

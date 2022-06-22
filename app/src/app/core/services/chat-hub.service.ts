@@ -29,13 +29,15 @@ export class ChatHubService {
   }
 
   public join(id: string) {
-    this.activeChatId = null;
+    console.log(`Joined: ${id}`)
     this.connection.invoke("Join", id);
     this.activeChatId = id;
   }
 
   public leave(id: string) {
+    console.log(`Left: ${id}`)
     this.connection.invoke("Leave", id);
+    this.activeChatId = null;
   }
 
   public sendMessage(id: string, message: Object) {

@@ -9,7 +9,7 @@
 <ion-content>
   <div class="chat-container" align="center">
     <ion-avatar class="chat-avatar">
-      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+      <img src="https://picsum.photos/200">
     </ion-avatar>
     <!-- <ion-title>Chatname</ion-title> -->
   </div>
@@ -36,7 +36,7 @@
         <ion-note>{{ this.users.length }} Participants</ion-note>
       </ion-col>
       <ion-col size="2">
-        <ion-button color="success" fill="clear" (click)="addUserToChat()">
+        <ion-button color="success" fill="clear" id="open-modal" (click)="fetchUsers()">
           <ion-icon slot="icon-only" name="person-add-outline"></ion-icon>
         </ion-button>
       </ion-col>
@@ -48,7 +48,7 @@
         <ng-container>
           <ion-item>
             <ion-avatar>
-              <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+              <img src="https://picsum.photos/200">
             </ion-avatar>
             <div class="ion-padding">
               <ion-label>{{ user['name'] }}</ion-label>
@@ -63,6 +63,28 @@
       </ion-item-sliding>
     </div>
   </div>
+  <ion-modal #modal trigger="open-modal">
+    <ng-template>
+      <ion-content>
+        <ion-toolbar>
+          <ion-title>Add User</ion-title>
+          <ion-buttons slot="end">
+            <ion-button color="light" (click)="modal.dismiss()">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+        <ion-list *ngFor="let user of allUsers">
+          <ion-item (click)="addUser(user)">
+            <ion-avatar slot="start">
+              <ion-img src="https://picsum.photos/200"></ion-img>
+            </ion-avatar>
+            <ion-label>
+              <h2>{{ user['name'] }}</h2>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>
 <ion-footer>
   <ion-button (click)="leaveChat(user)" color="danger" expand="full">
